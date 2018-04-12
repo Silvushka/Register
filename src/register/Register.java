@@ -58,8 +58,6 @@ public class Register {
 	 */
 	public void addPerson(Person person) {
 		int counter = 0;
-		String name = person.getName();
-		String number = person.getPhoneNumber();
 		for (int j = 0; j < getCount(); j++) {
 			if ((person.getName()).equals(persons[j].getName())
 					|| (person.getPhoneNumber()).equals(persons[j].getPhoneNumber())) {
