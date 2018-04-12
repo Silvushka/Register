@@ -57,19 +57,21 @@ public class Register {
 	 *            person to append to this register
 	 */
 	public void addPerson(Person person) {
+		int counter = 0;
 		String name = person.getName();
 		String number = person.getPhoneNumber();
-		for (int j = 0; j < getSize(); j++) {
-			// if ((person.getName()).equals(persons[j].getName()) &&
-			// number.equals(persons[j].getPhoneNumber())) {
-			//
-			// } else {
-			// System.out.println("Osoba s takym menom alebo telefonnym cislom uz v zozname
-			// figuruje!");
-			// }
+		for (int j = 0; j < getCount(); j++) {
+			if ((person.getName()).equals(persons[j].getName())
+					|| (person.getPhoneNumber()).equals(persons[j].getPhoneNumber())) {
+				counter++;
+			}
 		}
-		persons[count] = person;
-		count++;
+		if (counter == 0) {
+			persons[count] = person;
+			count++;
+		} else {
+			System.out.println("Osoba s danym menom alebo telefonnym cislom uz existuje!");
+		}
 
 	}
 
