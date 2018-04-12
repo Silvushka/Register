@@ -110,7 +110,11 @@ public class ConsoleUI {
 		System.out.println("New Name: ");
 		person.setName(readLine());
 		System.out.println("New Phone Number: ");
-		person.setPhoneNumber(readLine());
+		try {
+			person.setPhoneNumber(readLine());
+		} catch (PhoneNumberFormatException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// TODO: Implement the method findInRegister
