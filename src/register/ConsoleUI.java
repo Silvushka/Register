@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
  */
 public class ConsoleUI {
 	/** register.Register of persons. */
+
 	private Register register;
 
 	/**
@@ -83,7 +84,7 @@ public class ConsoleUI {
 	// TODO: Implement the method printRegister
 	private void printRegister() {
 		System.out.println("All Phone Numbers:");
-		for (int i = 0; i < register.getSize(); i++) {
+		for (int i = 0; i < register.getCount(); i++) {
 			if (register.getPerson(i) != null) {
 				System.out.print((i + 1) + ". ");
 				System.out.println(register.getPerson(i));
@@ -126,7 +127,7 @@ public class ConsoleUI {
 			System.out.println(person);
 			return;
 		}
-		 Person person = register.findPersonByPhoneNumber(readLine);
+		Person person = register.findPersonByPhoneNumber(readLine);
 	}
 
 	private void removeFromRegister() {

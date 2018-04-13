@@ -1,43 +1,13 @@
 package register;
 
-/**
- * register.Person register.
- */
-public class Register {
-	/** register.Person array. */
-	private Person[] persons;
-
-	/** Number of persons in this register. */
-	private int count;
-
-	/**
-	 * Constructor creates an empty register with maximum size specified.
-	 * 
-	 * @param size
-	 *            maximum size of the register
-	 */
-	public Register(int size) {
-		persons = new Person[size];
-		count = 0;
-	}
+public interface Register {
 
 	/**
 	 * Returns the number of persons in this register.
 	 * 
 	 * @return the number of persons in this register
 	 */
-	public int getCount() {
-		return count;
-	}
-
-	/**
-	 * Returns the maximum number of persons in this register.
-	 * 
-	 * @return the maximum number of persons in this register.
-	 */
-	public int getSize() {
-		return persons.length;
-	}
+	int getCount();
 
 	/**
 	 * Returns the person at the specified position in this register.
@@ -46,9 +16,7 @@ public class Register {
 	 *            index of the person to return
 	 * @return person the person at the specified position in this register
 	 */
-	public Person getPerson(int index) {
-		return persons[index];
-	}
+	Person getPerson(int index);
 
 	/**
 	 * Appends the specified person to the end of this register.
@@ -56,22 +24,7 @@ public class Register {
 	 * @param person
 	 *            person to append to this register
 	 */
-	public void addPerson(Person person) {
-		int counter = 0;
-		for (int j = 0; j < getCount(); j++) {
-			if ((person.getName()).equals(persons[j].getName())
-					|| (person.getPhoneNumber()).equals(persons[j].getPhoneNumber())) {
-				counter++;
-			}
-		}
-		if (counter == 0) {
-			persons[count] = person;
-			count++;
-		} else {
-			System.out.println("Osoba s danym menom alebo telefonnym cislom uz existuje!");
-		}
-
-	}
+	void addPerson(Person person);
 
 	// TODO: Implement the method findPersonByName
 	/**
@@ -82,14 +35,7 @@ public class Register {
 	 *            name of a person to search for
 	 * @return person with specified phone number
 	 */
-	public Person findPersonByName(String name) {
-		for (int i = 0; i < persons.length; i++) {
-			if (name.equals(persons[i].getName())) {
-				return persons[i];
-			}
-		}
-		return null;
-	}
+	Person findPersonByName(String name);
 
 	// TODO: Implement the method findPersonByPhoneNumber
 	/**
@@ -100,14 +46,7 @@ public class Register {
 	 *            phone number of a person to search for
 	 * @return person with specified phone number
 	 */
-	public Person findPersonByPhoneNumber(String phoneNumber) {
-		for (int i = 0; i < persons.length; i++) {
-			if (phoneNumber.equals(persons[i].getPhoneNumber())) {
-				return persons[i];
-			}
-		}
-		return null;
-	}
+	Person findPersonByPhoneNumber(String phoneNumber);
 
 	// TODO: Implement the method removePerson
 	/**
@@ -116,12 +55,6 @@ public class Register {
 	 * @param person
 	 *            person to remove
 	 */
-	public void removePerson(Person person) {
-		for (int i = 0; i < count; i++) {
-			if (person.equals(persons[i])) {
-				System.arraycopy(persons, i + 1, persons, i, persons.length - i - 1);
-				count--;
-			}
-		}
-	}
+	void removePerson(Person person);
+
 }
